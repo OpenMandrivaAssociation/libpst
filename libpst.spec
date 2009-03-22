@@ -1,15 +1,15 @@
 Summary:            Utilities to convert Outlook .pst files to other formats
 Name:               libpst
 Version:            0.6.34
-Release:            1%{?dist}
+Release:            %mkrel 1
 License:            GPLv2+
-Group:              Applications/Productivity
+Group:              Networking/Mail
 Source:             http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
-BuildRoot:          %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
+BuildRoot:          %{_tmppath}/%{name}-%{version}-%{release}
 URL:                http://www.five-ten-sg.com/%{name}/
 Requires:           ImageMagick
 BuildRequires:      ImageMagick
-BuildRequires:      freetype-devel		
+BuildRequires:      freetype-devel
 BuildRequires:      gd-devel
 BuildRequires:      jpeg-devel
 BuildRequires:      zlib-devel
