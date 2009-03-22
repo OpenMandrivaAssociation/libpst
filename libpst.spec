@@ -18,6 +18,7 @@ BuildRequires:      freetype-devel
 BuildRequires:      gd-devel
 BuildRequires:      jpeg-devel
 BuildRequires:      zlib-devel
+BuildRequires:      gettext-devel
 Obsoletes:	    pst-utils
 Provides:	    pst-utils
 
