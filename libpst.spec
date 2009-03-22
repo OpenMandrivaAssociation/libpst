@@ -5,10 +5,11 @@
 Summary:            Utilities to convert Outlook .pst files to other formats
 Name:               libpst
 Version:            0.6.34
-Release:            %mkrel 2
+Release:            %mkrel 3
 License:            GPLv2+
 Group:              Networking/Mail
 Source:             http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
+Patch0:		    libpst-0.6.34-missing-header.patch
 BuildRoot:          %{_tmppath}/%{name}-%{version}-%{release}
 URL:                http://www.five-ten-sg.com/%{name}/
 Requires:           ImageMagick
@@ -17,6 +18,8 @@ BuildRequires:      freetype-devel
 BuildRequires:      gd-devel
 BuildRequires:      jpeg-devel
 BuildRequires:      zlib-devel
+Obsoletes:	    pst-utils
+Provides:	    pst-utils
 
 %description
 The Libpst utilities include readpst which can convert email messages
@@ -43,10 +46,14 @@ Library and header files for the libpst library.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 #TODO fix format not a string literal
 %define Werror_cflags %nil
+
+#needed by patch 0
+autoreconf -fiv
 
 %configure2_5x --enable-libpst-shared
 %make
@@ -54,8 +61,7 @@ Library and header files for the libpst library.
 
 %install
 rm -rf %{buildroot}
-make DESTDIR=%{buildroot} install
-
+%makeinstall
 
 %clean
 rm -rf %{buildroot}
