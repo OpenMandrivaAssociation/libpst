@@ -1,15 +1,23 @@
+#
+#
+# Warning !
+# The version newer than 0.6.27 have a different ABI than the one used by evolution 2.26 plugin
+# Please ensure it's compatible before upgrading
+#
+#
+#
+
 %define	major 1
 %define libname	%mklibname pst %{major}
 %define develname %mklibname -d pst
 
 Summary:            Utilities to convert Outlook .pst files to other formats
 Name:               libpst
-Version:            0.6.34
-Release:            %mkrel 3
+Version:            0.6.27
+Release:            %mkrel 1
 License:            GPLv2+
 Group:              Networking/Mail
 Source:             http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
-Patch0:		    libpst-0.6.34-missing-header.patch
 BuildRoot:          %{_tmppath}/%{name}-%{version}-%{release}
 URL:                http://www.five-ten-sg.com/%{name}/
 Requires:           ImageMagick
@@ -21,6 +29,7 @@ BuildRequires:      zlib-devel
 BuildRequires:      gettext-devel
 Obsoletes:	    pst-utils
 Provides:	    pst-utils
+Epoch:	0
 
 %description
 The Libpst utilities include readpst which can convert email messages
@@ -47,14 +56,10 @@ Library and header files for the libpst library.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 #TODO fix format not a string literal
 %define Werror_cflags %nil
-
-#needed by patch 0
-autoreconf -fiv
 
 %configure2_5x --enable-libpst-shared
 %make
