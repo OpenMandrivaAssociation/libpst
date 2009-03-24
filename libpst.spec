@@ -29,7 +29,7 @@ BuildRequires:      zlib-devel
 BuildRequires:      gettext-devel
 Obsoletes:	    pst-utils
 Provides:	    pst-utils
-Epoch:	0
+Epoch:	1
 
 %description
 The Libpst utilities include readpst which can convert email messages
