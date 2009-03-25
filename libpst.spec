@@ -14,14 +14,16 @@
 Summary:            Utilities to convert Outlook .pst files to other formats
 Name:               libpst
 Version:            0.6.27
-Release:            %mkrel 3
+Release:            %mkrel 4
 License:            GPLv2+
 Group:              Networking/Mail
 Source:             http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
 Patch0:		    libpst-0.6.27-fix-evolution-compat.patch
+Patch1:		    libpst-0.6.27-fix-str-fmt.patch
 BuildRoot:          %{_tmppath}/%{name}-%{version}-%{release}
 URL:                http://www.five-ten-sg.com/%{name}/
 Requires:           ImageMagick
+Requires:	    %{libname} = %{epoch}:%{version}
 BuildRequires:      ImageMagick
 BuildRequires:      freetype-devel
 BuildRequires:      gd-devel
@@ -58,12 +60,10 @@ Library and header files for the libpst library.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p0
 
 %build
-#TODO fix format not a string literal
-%define Werror_cflags %nil
-
-%configure2_5x --enable-libpst-shared
+%configure2_5x --enable-libpst-shared --enable-shared
 %make
 
 
