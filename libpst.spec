@@ -20,6 +20,7 @@ BuildRequires:      jpeg-devel
 BuildRequires:      zlib-devel
 BuildRequires:      gettext-devel
 BuildRequires:      python-devel
+BuildRequires:      libboost-devel
 Obsoletes:	    pst-utils
 Provides:	    pst-utils
 Epoch:	1
