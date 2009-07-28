@@ -1,25 +1,14 @@
-#
-#
-# Warning !
-# The version newer than 0.6.27 have a different ABI than the one used by evolution 2.26 plugin
-# Please ensure it's compatible before upgrading
-#
-#
-#
-
-%define	major 1
+%define	major 4
 %define libname	%mklibname pst %{major}
 %define develname %mklibname -d pst
 
 Summary:            Utilities to convert Outlook .pst files to other formats
 Name:               libpst
-Version:            0.6.27
-Release:            %mkrel 4
+Version:            0.6.41
+Release:            %mkrel 1
 License:            GPLv2+
 Group:              Networking/Mail
 Source:             http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
-Patch0:		    libpst-0.6.27-fix-evolution-compat.patch
-Patch1:		    libpst-0.6.27-fix-str-fmt.patch
 BuildRoot:          %{_tmppath}/%{name}-%{version}-%{release}
 URL:                http://www.five-ten-sg.com/%{name}/
 Requires:           ImageMagick
@@ -30,6 +19,7 @@ BuildRequires:      gd-devel
 BuildRequires:      jpeg-devel
 BuildRequires:      zlib-devel
 BuildRequires:      gettext-devel
+BuildRequires:      python-devel
 Obsoletes:	    pst-utils
 Provides:	    pst-utils
 Epoch:	1
@@ -57,19 +47,26 @@ Requires:	%{libname} = %{epoch}:%{version}
 %description -n	%{develname}
 Library and header files for the libpst library.
 
+%package -n python-%name
+Summary:	Python binding for the libpst library
+Group:		Development/Python
+Requires:	%libname = %version-%release
+
+%description -n	python-%name
+Python module for using pst files.
+
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -p0
 
 %build
 %configure2_5x --enable-libpst-shared --enable-shared
-%make
+%make LIBS=-pthread
 
 
 %install
 rm -rf %{buildroot}
 %makeinstall
+rm -f %buildroot%py_platsitedir/_libpst.a
 
 %clean
 rm -rf %{buildroot}
@@ -89,10 +86,13 @@ rm -rf %{buildroot}
 
 %files -n %{develname}
 %defattr(-,root,root)
-%{_includedir}/libpst/*.h
+%{_includedir}/libpst-4/
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/%{name}.pc
 
-
+%files -n python-%name
+%defattr(-,root,root)
+%py_platsitedir/_libpst.so
+%py_platsitedir/_libpst.la
