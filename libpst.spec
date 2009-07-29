@@ -5,7 +5,7 @@
 Summary:            Utilities to convert Outlook .pst files to other formats
 Name:               libpst
 Version:            0.6.41
-Release:            %mkrel 1
+Release:            %mkrel 2
 License:            GPLv2+
 Group:              Networking/Mail
 Source:             http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
@@ -51,7 +51,7 @@ Library and header files for the libpst library.
 %package -n python-%name
 Summary:	Python binding for the libpst library
 Group:		Development/Python
-Requires:	%libname = %version-%release
+Requires:	%libname = %epoch:%version-%release
 
 %description -n	python-%name
 Python module for using pst files.
