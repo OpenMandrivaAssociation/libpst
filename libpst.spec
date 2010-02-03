@@ -5,10 +5,11 @@
 Summary:            Utilities to convert Outlook .pst files to other formats
 Name:               libpst
 Version:            0.6.45
-Release:            %mkrel 1
+Release:            %mkrel 2
 License:            GPLv2+
 Group:              Networking/Mail
 Source:             http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
+Patch0:	            libpst-0.6.45-linkage.patch
 BuildRoot:          %{_tmppath}/%{name}-%{version}-%{release}
 URL:                http://www.five-ten-sg.com/%{name}/
 Requires:           ImageMagick
@@ -58,15 +59,15 @@ Python module for using pst files.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure2_5x --enable-libpst-shared --enable-shared
-%make LIBS=-pthread
-
+%make
 
 %install
 rm -rf %{buildroot}
-%makeinstall
+%makeinstall_std
 rm -f %buildroot%py_platsitedir/_libpst.a
 
 %clean
