@@ -4,8 +4,8 @@
 
 Summary:            Utilities to convert Outlook .pst files to other formats
 Name:               libpst
-Version:            0.6.46
-Release:            %mkrel 2
+Version:            0.6.47
+Release:            %mkrel 1
 License:            GPLv2+
 Group:              Networking/Mail
 Source:             http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
