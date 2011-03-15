@@ -62,7 +62,7 @@ Python module for using pst files.
 %patch0 -p0
 
 %build
-%configure2_5x --enable-libpst-shared --enable-shared
+%configure2_5x --enable-libpst-shared --enable-shared --disable-static
 %make
 
 %install
@@ -90,7 +90,6 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_includedir}/libpst-4/
 %{_libdir}/*.so
-%{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/%{name}.pc
 
