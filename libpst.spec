@@ -90,10 +90,8 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_includedir}/libpst-4/
 %{_libdir}/*.so
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/%{name}.pc
 
 %files -n python-%name
 %defattr(-,root,root)
 %py_platsitedir/_libpst.so
-%py_platsitedir/_libpst.la
