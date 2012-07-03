@@ -12,16 +12,16 @@ Source:             http://www.five-ten-sg.com/%{name}/packages/%{name}-%{versio
 Patch0:	            libpst-0.6.45-linkage.patch
 BuildRoot:          %{_tmppath}/%{name}-%{version}-%{release}
 URL:                http://www.five-ten-sg.com/%{name}/
-Requires:           ImageMagick
+Requires:           imagemagick
 Requires:	    %{libname} = %{epoch}:%{version}
-BuildRequires:      ImageMagick
+BuildRequires:      imagemagick
 BuildRequires:      freetype-devel
 BuildRequires:      gd-devel
 BuildRequires:      jpeg-devel
 BuildRequires:      zlib-devel
 BuildRequires:      gettext-devel
 BuildRequires:      python-devel
-BuildRequires:      libboost-devel
+BuildRequires:      boost-devel
 Obsoletes:	    pst-utils
 Provides:	    pst-utils
 Epoch:	1
