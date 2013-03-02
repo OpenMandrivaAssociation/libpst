@@ -1,4 +1,4 @@
-%define	major 4
+%define	major	4
 %define libname	%mklibname pst %{major}
 %define devname %mklibname -d pst
 
@@ -70,7 +70,6 @@ Python module for using pst files.
 
 %install
 %makeinstall_std
-#rm -f %{buildroot}%{py_platsitedir}/_libpst.a
 
 %files
 %{_bindir}/*
