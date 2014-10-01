@@ -77,7 +77,7 @@ Requires:	%{libname} = %{EVRD}
 Python module for using pst files.
 
 %files -n python-%{name}
-%{py_platsitedir}/_libpst.so
+%{py2_platsitedir}/_libpst.so
 
 #----------------------------------------------------------------------------
 
@@ -86,6 +86,7 @@ Python module for using pst files.
 %patch0 -p0
 
 %build
+export PYTHON=%{__python2}
 %configure2_5x \
 	--disable-static \
 	--enable-libpst-shared \
