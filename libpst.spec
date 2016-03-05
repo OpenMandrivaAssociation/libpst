@@ -1,3 +1,6 @@
+%define _disable_lto 1
+%define _disable_rebuild_configure 1
+
 %define major 4
 %define libname %mklibname pst %{major}
 %define devname %mklibname pst -d
@@ -5,8 +8,8 @@
 Summary:	Utilities to convert Outlook .pst files to other formats
 Name:		libpst
 Epoch:		1
-Version:	0.6.64
-Release:	3
+Version:	0.6.66
+Release:	1
 License:	GPLv2+
 Group:		Networking/Mail
 Url:		http://www.five-ten-sg.com/%{name}/

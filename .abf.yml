@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   libpst-0.6.64.tar.gz: 28b7717c8526acfbc93f88819b9ac89cb29d942e
+sources:
+  libpst-0.6.66.tar.gz: 02fe2035df93e4006ac92df20038c9c82f77f13e
