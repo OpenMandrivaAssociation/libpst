@@ -8,8 +8,8 @@
 Summary:	Utilities to convert Outlook .pst files to other formats
 Name:		libpst
 Epoch:		1
-Version:	0.6.66
-Release:	4
+Version:	0.6.72
+Release:	1
 License:	GPLv2+
 Group:		Networking/Mail
 Url:		http://www.five-ten-sg.com/%{name}/
@@ -80,7 +80,7 @@ Requires:	%{libname} = %{EVRD}
 Python module for using pst files.
 
 %files -n python-%{name}
-%{py2_platsitedir}/_libpst.so
+%{py_platsitedir}/_libpst.so
 
 #----------------------------------------------------------------------------
 
@@ -89,13 +89,13 @@ Python module for using pst files.
 %patch0 -p0
 
 %build
-export PYTHON=%{__python2}
+#export PYTHON=%{__python2}
 %configure \
 	--disable-static \
 	--enable-libpst-shared \
 	--enable-shared
 
-%make LIBS='-lpython2.7'
+%make_build
 
 %install
-%makeinstall_std
+%make_install
