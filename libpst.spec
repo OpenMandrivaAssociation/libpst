@@ -89,6 +89,9 @@ Python module for using pst files.
 %autopatch -p1
 
 %build
+export CC=gcc
+export CXX=g++
+
 #export PYTHON=%{__python2}
 %configure \
 	--disable-static \
