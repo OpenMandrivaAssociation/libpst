@@ -99,7 +99,7 @@ export CXX=g++
 	--enable-libpst-shared \
 	--enable-shared
 
-%make_build
+%make LIBS='-lpython3.7'
 
 %install
 %make_install
