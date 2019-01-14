@@ -17,7 +17,7 @@ Source0:	http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
 Patch0:		libpst-0.6.72-linkage.patch
 BuildRequires:	imagemagick
 BuildRequires:	boost-devel
-BuildRequires:	libboost_python-devel
+BuildRequires:	boost-python-devel
 BuildRequires:	gd-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
