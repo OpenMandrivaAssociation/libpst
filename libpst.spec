@@ -90,16 +90,13 @@ Python module for using pst files.
 %autopatch -p1
 
 %build
-export CC=gcc
-export CXX=g++
 
-#export PYTHON=%{__python2}
 %configure \
 	--disable-static \
 	--enable-libpst-shared \
 	--enable-shared
 
-%make LIBS='-lpython3.7'
+%make_build LIBS='-lpython3.7'
 
 %install
 %make_install
