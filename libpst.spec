@@ -96,7 +96,7 @@ Python module for using pst files.
 	--enable-libpst-shared \
 	--enable-shared
 
-%make_build LIBS='-lpython3.7'
+%make_build LIBS='-lpython3.8'
 
 %install
 %make_install
