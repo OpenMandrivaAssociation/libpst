@@ -1,0 +1,24 @@
+diff -uraN libpst-0.6.75/src/Makefile.am omv-libpst-0.6.75/src/Makefile.am
+--- libpst-0.6.75/src/Makefile.am	2020-03-26 18:52:30.000000000 +0100
++++ omv-libpst-0.6.75/src/Makefile.am	2020-05-05 15:27:36.977102335 +0200
+@@ -80,7 +80,7 @@
+ endif
+ 
+ libpst_la_SOURCES     = $(common_source) $(common_header)
+-libpst_la_LIBADD      = $(LTLIBICONV) @ZLIB_LIBS@ $(SEM_LIBS)
++libpst_la_LIBADD      = $(LTLIBICONV) @ZLIB_LIBS@ $(SEM_LIBS) -lpthread -lz
+ 
+ EXTRA_DIST =
+ if !NEED_XGETOPT
+diff -uraN libpst-0.6.75/src/Makefile.in omv-libpst-0.6.75/src/Makefile.in
+--- libpst-0.6.75/src/Makefile.in	2020-03-26 18:52:48.000000000 +0100
++++ omv-libpst-0.6.75/src/Makefile.in	2020-05-05 15:28:08.129056554 +0200
+@@ -416,7 +416,7 @@
+ 
+ @STATIC_TOOLS_FALSE@libpst_la_LDFLAGS = $(NO_UNDEFINED) -version-info @LIBPST_VERSION_INFO@
+ libpst_la_SOURCES = $(common_source) $(common_header)
+-libpst_la_LIBADD = $(LTLIBICONV) @ZLIB_LIBS@ $(SEM_LIBS)
++libpst_la_LIBADD = $(LTLIBICONV) @ZLIB_LIBS@ $(SEM_LIBS) -lpthread -lz
+ EXTRA_DIST = $(am__append_4)
+ 
+ # set the include path found by configure
