@@ -14,7 +14,7 @@ License:	GPLv2+
 Group:		Networking/Mail
 Url:		http://www.five-ten-sg.com/%{name}/
 Source0:	http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
-Patch0:		libpst-0.6.72-linkage.patch
+Patch0:		libpst-0.6.75-linkage.patch
 BuildRequires:	imagemagick
 BuildRequires:	boost-devel
 BuildRequires:	boost-python-devel
