@@ -9,7 +9,7 @@ Summary:	Utilities to convert Outlook .pst files to other formats
 Name:		libpst
 Epoch:		1
 Version:	0.6.75
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Networking/Mail
 Url:		http://www.five-ten-sg.com/%{name}/
@@ -96,7 +96,7 @@ Python module for using pst files.
 	--enable-libpst-shared \
 	--enable-shared
 
-%make_build LIBS='-lpython3.8'
+%make_build LIBS='-lpython3.9'
 
 %install
 %make_install
