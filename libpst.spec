@@ -8,8 +8,8 @@
 Summary:	Utilities to convert Outlook .pst files to other formats
 Name:		libpst
 Epoch:		1
-Version:	0.6.75
-Release:	3
+Version:	0.6.76
+Release:	1
 License:	GPLv2+
 Group:		Networking/Mail
 Url:		http://www.five-ten-sg.com/%{name}/
@@ -20,7 +20,7 @@ BuildRequires:	boost-devel
 BuildRequires:	boost-python-devel
 BuildRequires:	gd-devel
 BuildRequires:	gettext-devel
-BuildRequires:	jpeg-devel
+BuildRequires:	pkgconfig(libjpeg)
 BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(libgsf-1)
 BuildRequires:	pkgconfig(python)
@@ -86,8 +86,7 @@ Python module for using pst files.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 
