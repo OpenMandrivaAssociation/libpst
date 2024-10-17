@@ -12,7 +12,7 @@ Version:	0.6.76
 Release:	3
 License:	GPLv2+
 Group:		Networking/Mail
-Url:		http://www.five-ten-sg.com/%{name}/
+Url:		https://www.five-ten-sg.com/%{name}/
 Source0:	http://www.five-ten-sg.com/%{name}/packages/%{name}-%{version}.tar.gz
 Patch0:		libpst-0.6.75-linkage.patch
 BuildRequires:	imagemagick
